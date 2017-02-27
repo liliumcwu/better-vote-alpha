@@ -34,16 +34,16 @@
 
 - Admin interface to:
 
--- Create elections (define voting method, options demographic indentifiers, candidates, and issues)
--- Manage voter pool (manual csv input, integration with external services, and potentially an internal voter registration/pool system)
--- Interact with voter pool (messaging throughout election to stimulate turnout)
--- Process results (including potential advanced analytics to provide public transparency, and to provide feedback to candidates)
+  - Create elections (define voting method, options demographic indentifiers, candidates, and issues)
+  - Manage voter pool (manual csv input, integration with external services, and potentially an internal voter registration/pool system)
+  - Interact with voter pool (messaging throughout election to stimulate turnout)
+  - Process results (including potential advanced analytics to provide public transparency, and to provide feedback to candidates)
 
 - Voter interface to:
 
--- Register for an election
--- Vote in an election
--- Track results
+  - Register for an election
+  - Vote in an election
+  - Track results
 
 ### The Goal
 
