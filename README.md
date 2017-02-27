@@ -36,7 +36,9 @@ Node.js | Express | MongoDB | Mailgun
 
 ## IRV Methodology
 
-![IRV Flowchart from https://en.wikipedia.org/wiki/Instant-runoff_voting#Process](https://upload.wikimedia.org/wikipedia/commons/b/b9/IRV_counting_flowchart.svg)
+##### Basic Flowchart of IRV process
+![IRV Flowchart](https://upload.wikimedia.org/wikipedia/commons/b/b9/IRV_counting_flowchart.svg)
+Credit: [Wiki #Process](https://en.wikipedia.org/wiki/Instant-runoff_voting#Process)
 
 ## Project Context
 
