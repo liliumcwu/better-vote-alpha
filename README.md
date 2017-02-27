@@ -10,11 +10,11 @@
 
 #### Front End:
 
-Angular1 | Materialize.css| HTML | CSS | Javascript | jQuery | 
+Angular1 | Materialize.css | HTML | CSS | Javascript | jQuery 
 
 #### Back End:
 
-Node.js | Express | MongoDB
+Node.js | Express | MongoDB | Mailgun
 
 ## Getting Started
 
