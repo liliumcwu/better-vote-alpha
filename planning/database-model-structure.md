@@ -29,4 +29,18 @@ Cons:
   - Voters (referenced into election model)
     - Unique URLs (embedded into each vote)
 
+Elections 
+- ballots: [embedded Ballots]
+- admin: ref: User
+- url: String
+
+Ballots
+- voter: ref: User
+- votes: [A,B,C...] Array
+- url: string
+
+Users
+- username String
+- email: String
+
 

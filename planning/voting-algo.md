@@ -1,8 +1,7 @@
 ### Voting Algo Plan
 
-##### Majority func
+##### Majority Func
 ```javascript
-
 //Constructs test array of objects
 function testConstructor(num) {
   let newArr = [];
@@ -26,5 +25,14 @@ const testArr2 = testConstructor(99); //change number
 
 console.log(findMajority(testArr))
 console.log(findMajority(testArr2))
+```
+
+##### Sorting Func
+```javascript
+
+const votes = [
+  {voter: 1,
+  votes: }
+]
 
 ```
