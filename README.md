@@ -10,7 +10,7 @@
 
 #### Front End:
 
-HTML | CSS | Javascript | jQuery
+Angular1 | Materialize.css| HTML | CSS | Javascript | jQuery | 
 
 #### Back End:
 
@@ -18,14 +18,9 @@ Node.js | Express | MongoDB
 
 ## Getting Started
 
-After forking or cloning this repo:
-
-```
-$ npm install
-$ npm start
-```
-
-Navigate to localhost:3000
+1. Run `$ npm install` then `$ npm start`
+2. Make sure `mongod` is running
+3. Navigate to `http://localhost:1776` in a browser
 
 ### Planning
 
