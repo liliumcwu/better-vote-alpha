@@ -34,6 +34,10 @@ Node.js | Express | MongoDB | Mailgun
 
 [https://waffle.io/amaidah/better-vote](https://waffle.io/amaidah/better-vote)
 
+## IRV Methodology
+
+![IRV Flowchart from https://en.wikipedia.org/wiki/Instant-runoff_voting#Process](https://upload.wikimedia.org/wikipedia/commons/b/b9/IRV_counting_flowchart.svg)
+
 ## Project Context
 
 ### The Motivation
