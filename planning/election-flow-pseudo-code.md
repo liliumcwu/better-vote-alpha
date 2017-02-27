@@ -24,14 +24,14 @@
 ##### [As a voter, I want to submit a vote in a basic election, so that my choice is heard.](https://waffle.io/amaidah/better-vote/cards/58b3c8808dd48b2e000fce61)
 - Voters get link manually
   - Email integration later
-- Voters navigate to <unique url>
-  - Must show Welcome, <unique name>
+- Voters navigate to <:unique url>
+  - Must show Welcome, <:unique name>
   - Must show candidate set
 
 ##### [As an election admin, I want to close a basic election, so that decisions get made.](https://waffle.io/amaidah/better-vote/cards/58b3c88ebacffc15001f81e6)
 - Admin navigates to election details page and clicks a close election button
   - Users navigating to their unique urls see an "election closed" message
-    - Displays "You voted for <name>" or "You did not vote"
+    - Displays "You voted for <:name>" or "You did not vote"
 
 ##### [As an election admin, I want to view results from an instant-runoff election, so that I can declare a winner.](https://waffle.io/amaidah/better-vote/cards/58b3c89baf847e2800245846)
 - Separate button in election details page to calculate results using IRV algo
