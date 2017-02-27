@@ -3,7 +3,7 @@
 
 ## Contributors
 
-- Thomas Wu (Product Owner)
+- (Thomas Wu)[https://www.linkedin.com/in/tom-wu] (Product Owner)
 - Andrew Maidah
 
 ## Technology Used
