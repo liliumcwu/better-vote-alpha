@@ -1,4 +1,4 @@
-# Better Vote :bulb: :unlock:
+# Better Vote :bulb: :earth_americas:
 ##### An Instant Runoff Voting Idea
 
 ## Contributors
