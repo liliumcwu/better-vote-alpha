@@ -30,6 +30,8 @@ Node.js | Express | MongoDB | Mailgun
 
 #### User Stories:
 
+#### Pseudo Code:
+
 #### Waffle.io Project Board
 
 [https://waffle.io/amaidah/better-vote](https://waffle.io/amaidah/better-vote)
