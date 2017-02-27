@@ -18,6 +18,29 @@ Node.js | Express | MongoDB
 
 ## Getting Started
 
+After forking or cloning this repo:
+
+```
+$ npm install
+$ npm start
+```
+
+Navigate to localhost:3000
+
+### Planning
+
+#### Wireframes:
+
+#### Prototypes:
+
+#### User Stories:
+
+#### Waffle.io Project Board
+
+[https://waffle.io/amaidah/better-vote](https://waffle.io/amaidah/better-vote)
+
+## Project Context
+
 ### The Motivation
 
 - Partisan politics and ideologies threaten the American democratic process. Humans are naturally tribal, and the two-party system is further reinforced and exacerbated by what is effectively binary voting.
