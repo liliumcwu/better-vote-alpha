@@ -3,40 +3,28 @@
 ##### Majority func
 ```javascript
 
-//Tests
+//Constructs test array of objects
+function testConstructor(num) {
+  let newArr = [];
+  for (let i = 1; i <= num; i++) {
+    let newObj = {};
+    newObj[i] = `${i}`;
+    newArr.push(newObj);
+  }
+  return newArr;
+}
 
-/* console.log(findMajority(31)); //16
-console.log(findMajority(30)); //16
-console.log(findMajority(16)); //9
-console.log(findMajority(15)); //8 */
-
-const n = [<:votes>]
-
+//Tests array of objects for majority
 function findMajority(n) {
   const length = n.length;
   let majorityNum = Math.trunc( (length / 2) + 1 );
   return majorityNum;
 }
 
-const testArr = [
-  {a:'a'},
-  {b:'b'},
-  {c:'c'},
-  {d:'d'},
-  {a:'a'},
-  {b:'b'},
-  {c:'c'},
-  {d:'d'},
-  {a:'a'},
-  {b:'b'},
-  {c:'c'},
-  {d:'d'},
-  {a:'a'},
-  {b:'b'},
-  {c:'c'},
-  {d:'d'}
-];
+const testArr = testConstructor(100); //change number
+const testArr2 = testConstructor(99); //change number
 
-console.log(findMajority(testArr)); //9
+console.log(findMajority(testArr))
+console.log(findMajority(testArr2))
 
 ```
