@@ -6,8 +6,6 @@
 - [Thomas Wu](https://www.linkedin.com/in/tom-wu) (Product Owner)
 - Andrew Maidah
 
-<a href="http://google.com" target="_blank">New Tab</a>
-
 ## Technology Used
 
 #### Front End:
