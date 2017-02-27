@@ -10,7 +10,11 @@
 
 #### Front End:
 
+HTML | CSS | Javascript | jQuery
+
 #### Back End:
+
+Node.js | Express | MongoDB
 
 ## Getting Started
 
