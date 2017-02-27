@@ -1,10 +1,10 @@
-# Better Vote :bulb: :earth_americas:
+# Better.vote :bulb: :earth_americas:
 ##### An Instant Runoff Voting Idea
 
 ## Contributors
 
-- [Thomas Wu](https://www.linkedin.com/in/tom-wu) (Product Owner)
-- Andrew Maidah
+- [Thomas Wu](https://www.linkedin.com/in/tom-wu) (Product)
+- Andrew Maidah (Tech)
 
 ## Technology Used
 
