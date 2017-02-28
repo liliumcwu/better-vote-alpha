@@ -2,6 +2,12 @@
   'use strict';
 
   angular
-    .module('betterVote', []);
+    .module('betterVote', [])
+    // .service('helloWorldFromService', function() {
+    //   this.sayHello = function() {
+    //     return "Hello, World from Service!"
+    //   }
+    // })
+
 
 })();
