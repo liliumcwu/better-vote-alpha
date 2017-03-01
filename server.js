@@ -6,13 +6,17 @@ const express = require('express'),
 
 const app = express();
 
-//CONFIG
+//Config
 
 //app.use(favicon(path.join(__dirname, 'public/favicon.ico')));
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+//Routes
+
+app.use('/api/elections', require('./api/routes/elections.js'));
 
 //Server
 
