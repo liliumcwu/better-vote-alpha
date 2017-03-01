@@ -68,6 +68,7 @@ var ballots = [
 var counter = '1';
 
 function findWinner(arrBallots) {
+  var winner;
   console.log(arrBallots);
   var isWinner = false;
   
@@ -79,7 +80,6 @@ function findWinner(arrBallots) {
   rounds[counter] = {};
   for (var i = 0; i< arrBallots.length; i++) {
     rounds[counter][arrBallots[i][0]] = null;
-    // counter += '1';
   }
   console.log(rounds)
   
@@ -105,7 +105,9 @@ function findWinner(arrBallots) {
     if (rounds[counter][roundArr[n]] >= majorityNum) {
       console.log(roundArr[n] + ' is the WINNER in round ' + counter.length);
       isWinner = true;
-      return roundArr[n]; //breaks out of recursion with WINNER!
+      winner = roundArr[n];
+      console.log('console log: ' + winner);
+//       return winner; //breaks out of recursion with WINNER!
     }
     else {
       console.log(roundArr[n] + ' is not the winner in round ' + counter.length);
@@ -122,9 +124,9 @@ function findWinner(arrBallots) {
     var newBallots = removeCandidate(lowest.lowest, arrBallots); 
     counter += '1';
     console.log(counter);
-    findWinner(newBallots); //recursively call again
+    return findWinner(newBallots); //recursively call again
   }
-  
+  return winner;
 }
 
 //Helper to remove matching elements from ballots
@@ -158,5 +160,5 @@ function lowestCandidate(roundArr, keyArr, counter, rounds) {
   return {cur: cur, lowest: lowest}
 }
 
-findWinner(ballots);
+console.log(findWinner(ballots));
 ```
