@@ -39,6 +39,11 @@ const votes = [
 
 ##### Find Winner Recursive Notes [JsBin Test](http://jsbin.com/cifuseq/edit?js,console)
 
+Works if every voter ranks every candidate
+Must build logic for ties and if voter only ranks one candidate
+Delete entire ballot row 
+if array.length === 0 or something
+
 ```
 var rounds = {};
 
@@ -51,6 +56,12 @@ var ballots = [
   ['C', 'A', 'B'],
   ['A', 'B', 'C'],
   ['A', 'C', 'B'],
+  ['B', 'A', 'C'],
+  ['C', 'B', 'A'],
+  ['C', 'B', 'A'],
+  ['A', 'C', 'B'],
+  ['C', 'B', 'A'],
+  ['B', 'A', 'C'],
   ['C', 'B', 'A']
 ]
 
@@ -111,7 +122,7 @@ function findWinner(arrBallots) {
     var newBallots = removeCandidate(lowest.lowest, arrBallots); 
     counter += '1';
     console.log(counter);
-    findWinner(newBallots);
+    findWinner(newBallots); //recursively call again
   }
   
 }

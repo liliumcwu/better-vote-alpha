@@ -5,9 +5,6 @@
     .module('betterVote')
     .controller('ElectionsController', ElectionsController)
 
-  //Service Style
-  // ElectionsController.$inject = ['$http', '$scope', 'helloWorldFromService', 'testWorldFromService'];
-
   //Factory Style
   ElectionsController.$inject = ['$http', '$scope', 'DataFromFactory'];
 
@@ -26,40 +23,43 @@
     //   $scope.factoryTest = JSON.stringify(data);
     // });
 
-    DataFromFactory
-    .then( function(data) {
+
+    DataFromFactory.allData().then( function(data) {
       vm.all = data;
-      // console.log(vm.all);
-      // assembleBallots(vm.all[0]); //individual elections inserted here
-      // findWinner(vm.electionBallots);
     })
     .then( function() {
-      // console.log(vm.all);
-      assembleBallots(vm.all[0])
+      var electionBallots = DataFromFactory.assembleBallots(vm.all[0]);
+      vm.electionBallots = electionBallots;
+      console.log('from vm.electionBallots', vm.electionBallots)
     })
     .then( function() {
-      findWinner(vm.electionBallots)
+      console.log('entering winning logic');
+      var winner = DataFromFactory.findWinner(vm.electionBallots)
+      console.log(winner);
+      console.log('async test from within findWinner function')
     })
 
-    function assembleBallots(election) {
-      let ballots = election.ballots;
-      console.log(ballots);
-      for (let i = 0; i < ballots.length; i++) {
-        vm.electionBallots.push(ballots[i].votes)
-      }
-      console.log(vm.electionBallots);
-      return
-    }
+//MOVED TO INDIAN FACTORY.JS HELPER
+    // function assembleBallots(election) {
+    //   let ballots = election.ballots;
+    //   console.log(ballots);
+    //   for (let i = 0; i < ballots.length; i++) {
+    //     vm.electionBallots.push(ballots[i].votes)
+    //   }
+    //   console.log(vm.electionBallots);
+    //   return
+    // }
 
-    let counter = '1';
-    function findWinner(arrBallots) {
-      vm.rounds[counter] = {};
-      for (let i = 0; i< arrBallots.length; i++) {
-        vm.rounds[counter][arrBallots[i][0]] = null;
-        // counter += '1';
-      }
-      console.log(vm.rounds)
-    }
+//MOVED TO INDIAN FACTORY.JS HELPER
+    // let counter = '1';
+    // function findWinner(arrBallots) {
+    //   vm.rounds[counter] = {};
+    //   for (let i = 0; i< arrBallots.length; i++) {
+    //     vm.rounds[counter][arrBallots[i][0]] = null;
+    //     // counter += '1';
+    //   }
+    //   console.log(vm.rounds)
+    // }
 
 
     // getAllElections();
