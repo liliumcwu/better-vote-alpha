@@ -12,7 +12,8 @@
     const vm = this;
     vm.all = [];
     vm.electionBallots = [];
-    vm.rounds = {}
+    vm.rounds = {};
+    vm.winner;
 
     //Service
     // $scope.hello = helloWorldFromService.sayHello();
@@ -36,6 +37,7 @@
       console.log('entering winning logic');
       var winner = DataFromFactory.findWinner(vm.electionBallots)
       console.log(winner);
+      vm.winner = winner;
       console.log('async test from within findWinner function')
     })
 
