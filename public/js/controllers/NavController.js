@@ -6,6 +6,7 @@
     .controller('NavController', NavController);
 
   function NavController() {
+    $(".button-collapse").sideNav();
 
   }
 
