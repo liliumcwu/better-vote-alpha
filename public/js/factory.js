@@ -27,6 +27,7 @@
         return electionBallots;
       }
 
+      //Calculate win logic funcs below
       var counter = '1';
       var rounds = {};
 
@@ -90,7 +91,7 @@
           console.log(counter);
           return findWinner(newBallots); //recursively call again
         }
-        return winner;
+        return winner; //real return
       }
 
       //Service helper to remove matching elements from ballots
@@ -124,6 +125,7 @@
         return {cur: cur, lowest: lowest}
       }
 
+      //Returns service obj
       return service;
     })
 
