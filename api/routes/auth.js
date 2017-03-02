@@ -13,7 +13,7 @@ router.post('/google', function(req, res) {
   var params = {
     code: req.body.code,
     client_id: req.body.clientId,
-    client_secret: googSecret, //config.GOOGLE_SECRET,
+    client_secret: googSecret,
     redirect_uri: req.body.redirectUri,
     grant_type: 'authorization_code'
   }

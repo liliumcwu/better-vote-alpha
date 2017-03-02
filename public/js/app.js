@@ -71,6 +71,10 @@
       url: '/active',
       templateUrl: 'html/partials/elections-active.html'
     })
+    .state('elections.create', {
+      url: '/create',
+      templateUrl: 'html/partials/elections-create.html'
+    })
     .state('login', {
       url: '/login',
       templateUrl: 'html/partials/login.html',
