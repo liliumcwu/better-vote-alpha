@@ -21,13 +21,13 @@
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
             <!-- <li><a ui-sref-active="active" ui-sref="home">Home</a></li> -->
-            <li ng-if="isAuthenticated()"><a ui-sref-active="active" ui-sref="test">Elections</a></li>
+            <li ng-if="isAuthenticated()"><a ui-sref-active="active" ui-sref="elections">Elections</a></li>
             <li ng-if="!isAuthenticated()"><a ui-sref-active="active" ui-sref="login">Admin Login</a></li>  <!-- ng-if="!isAuthenticated()" -->
             <li ng-if="isAuthenticated()"><a ui-sref-active="active" ui-sref="profile">Profile</a></li> <!-- ng-if="isAuthenticated()" -->
             <li ng-if="isAuthenticated()"><a ng-click="nav.logout()">Logout</a></li>
           </ul>
           <ul class="side-nav" id="mobile-demo">
-            <li ng-if="isAuthenticated()"><a ui-sref-active="active" ui-sref="test">Elections</a></li>
+            <li ng-if="isAuthenticated()"><a ui-sref-active="active" ui-sref="elections">Elections</a></li>
             <li ng-if="!isAuthenticated()"><a ui-sref-active="active" ui-sref="login">Admin Login</a></li>  <!-- ng-if="!isAuthenticated()" -->
             <li ng-if="isAuthenticated()"><a ui-sref-active="active" ui-sref="profile">Profile</a></li> <!-- ng-if="isAuthenticated()" -->
             <li ng-if="isAuthenticated()"><a ng-click="nav.logout()">Logout</a></li>

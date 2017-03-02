@@ -11,46 +11,19 @@
     // })
     .run(["$rootScope", "$state", '$window', '$location', function($rootScope, $state, $window, $location) {
 
-      $rootScope.$on('$locationChangeStart', function(event, next, current) {
-        if (!$window.localStorage.betterVoteAdmin) {
-          // $state.go('login');
-          if ($location.$$path === '/profile' || $location.$$path === '/elections' ) {
-            Materialize.toast('You must be logged in', 3000);
-            $location.path('/login');
-          }
-          // console.log($location.$$path)
-        }
-      });
+      // $rootScope.$on('$locationChangeStart', function(event, next, current) {
+        // if (!$window.localStorage.betterVoteAdmin) {
+        //   // $state.go('login');
+        //   if ($location.$$path === '/profile' || $location.$$path === '/elections' ) {
+        //     Materialize.toast('You must be logged in', 3000);
+        //     $location.path('/login');
+        //   }
+        //   // console.log($location.$$path)
+        // }
+      // });
 }])
 
-
-  // authProvider.$inject = ['$authProvider'];
   MainRouter.$inject = ['$stateProvider', '$urlRouterProvider', '$authProvider'];
-
-  // function authProvider($authProvider) {
-  //    $authProvider
-  //     .google({
-  //       clientId: '1097906421619-smjmditjlb2ui51jfis1bgegjmv4r3ca.apps.googleusercontent.com'
-  //     });
-
-  //     //Google
-  //   // $authProvider
-  //   // .google({
-  //   //   url: '/auth/google',
-  //   //   authorizationEndpoint: 'https://accounts.google.com/o/oauth2/auth',
-  //   //   redirectUri: window.location.origin || window.location.protocol + '//' + window.location.host,
-  //   //   scope: ['profile', 'email'],
-  //   //   scopePrefix: 'openid',
-  //   //   scopeDelimiter: ' ',
-  //   //   clientId: '1097906421619-smjmditjlb2ui51jfis1bgegjmv4r3ca.apps.googleusercontent.com',
-  //   //   requiredUrlParams: ['scope'],
-  //   //   optionalUrlParams: ['display'],
-  //   //   display: 'none',
-  //   //   type: '2.0',
-  //   //   popupOptions: { width: 452, height: 633 }
-  //   // });
-
-  // }
 
   function MainRouter($stateProvider, $urlRouterProvider, $authProvider) {
     /**
@@ -93,6 +66,10 @@
       url: '/elections',
       templateUrl: 'elections.html',
       controller: 'ElectionsController'
+    })
+    .state('elections.active', {
+      url: '/active',
+      templateUrl: 'html/partials/elections-active.html'
     })
     .state('login', {
       url: '/login',
