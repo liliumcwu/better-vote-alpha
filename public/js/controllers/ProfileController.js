@@ -29,6 +29,7 @@
           console.log('found admin', vm.allData[i].displayName)
           vm.currentAdmin = vm.allData[i];
           console.log(vm.currentAdmin);
+          $rootScope.currentAdmin = vm.currentAdmin;
         }
       }
     })

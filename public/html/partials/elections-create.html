@@ -1,25 +1,40 @@
 <!-- create election here yo -->
 
-<div class="row center-align">
-<h3>Create New Election</h3>
-  <form class="col s12" method="POST" action="/">
+<div class="row center-align create-form">
+<h4 class="col s10">Create New Election</h4>
+  <form class="col s12" method="POST" name="create-election" ng-submit="submitForm(create-election)">
     <div class="row">
       <div class="input-field col s10 l10">
         <label class="active" for="election-title">Election Title</label>
-        <input id="election-title" type="text">
+        <input ng-model="election.election.electionTitle" id="election-title" type="text" required="" aria-required="true">
       </div>
     </div>
     <div class="row" data-ng-repeat="candidate in candidates">
       <div class="input-field col s10 l10">
         <label class="active" for="candidate-name">Candidate</label>
-        <input id="candidate-name" type="text" ng-model="candidate.name">
+        <input id="candidate-name" type="text" ng-model="candidate.name" required="" aria-required="true">
       </div>
-        <a ng-show="$first" ng-click="addNewCandidate()" class="btn-floating btn-large waves-effect waves-light green right"><i class="material-icons">add</i></a>
-        <a ng-show="showRemoveCandidate(candidate)" ng-click="removeCandidate($index)" class="btn-floating btn-large waves-effect waves-light red right"><i class="material-icons">remove</i></a>
+      <a ng-show="$first" ng-click="addNewCandidate()" class="btn-floating btn-large waves-effect waves-light green right"><i class="material-icons">add</i></a>
+      <a ng-show="showRemoveCandidate(candidate)" ng-click="removeCandidate($index)" class="btn-floating btn-large waves-effect waves-light red right"><i class="material-icons">remove</i></a>
+    </div>
+    <h4 class="col s10">Add Voters</h4>
+    <div class="row" data-ng-repeat="voter in voters">
+      <div class="input-field col s10 m5 l5">
+        <label class="active" for="voter-first-name">Voter First Name</label>
+        <input id="voter-first-name" type="text" required="" aria-required="true">
+      </div>
+      <div class="input-field col s10 m5 l5">
+        <label class="active" for="voter-email">Voter Email</label>
+        <input id="voter-email" type="email" required="" aria-required="true">
+      </div>
+      <a ng-show="$first" ng-click="addNewVoter()" class="btn-floating btn-large waves-effect waves-light green right"><i class="material-icons">add</i></a>
+      <a ng-show="showRemoveVoter(voter)" ng-click="removeVoter($index)" class="btn-floating btn-large waves-effect waves-light red right"><i class="material-icons">remove</i></a>
     </div>
     <button class="btn waves-effect waves-light" type="submit" name="action">Submit
       <i class="material-icons right">send</i>
     </button>
   </form>
 </div>
-<div id="candidateDisplay">{{candidates}}</div>
+<div id="candidateDisplay">REMOVE BEFORE PUSH {{candidates}}</div>
+<div id="candidateDisplay">REMOVE BEFORE PUSH {{voters}}</div>
+<div> {{election.election.electionTitle}} </div>

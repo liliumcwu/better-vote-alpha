@@ -6,14 +6,18 @@
     .controller('ElectionsController', ElectionsController)
 
   //Factory Style
-  ElectionsController.$inject = ['$http', '$scope', 'DataFromFactory'];
+  ElectionsController.$inject = ['$http', '$scope', '$rootScope', 'DataFromFactory'];
 
-  function ElectionsController($http, $scope, DataFromFactory) {
+  function ElectionsController($http, $scope, $rootScope, DataFromFactory) {
     const vm = this;
     vm.all = [];
     vm.electionBallots = [];
     vm.rounds = {};
     vm.winner;
+    vm.election = {};
+    vm.currentAdmin = $rootScope.currentAdmin;
+    console.log(vm.currentAdmin);
+    vm.election.admin = vm.currentAdmin;
 
     //Service
     // $scope.hello = helloWorldFromService.sayHello();
@@ -26,12 +30,12 @@
 
     //Create election candidate form funcs
 
-    $scope.candidates = [{id: 'candidate-1'}, {id: 'candidate-2'}]
+    $scope.candidates = [{id: 'candidate1', name: 'Andrew'}, {id: 'candidate2', name: 'Tom'}];
 
     $scope.addNewCandidate = function() {
       var last = $scope.candidates.length - 1;
-      var newIdNo = +$scope.candidates[last].id.substring(10) + 1;
-      $scope.candidates.push({'id':'candidate-' + newIdNo});
+      var newIdNo = +$scope.candidates[last].id.substring(9) + 1;
+      $scope.candidates.push({'id':'candidate' + newIdNo});
     };
 
     $scope.showRemoveCandidate = function(candidate) {
@@ -43,8 +47,33 @@
       return
     }
 
-    //End election candidate funcs
+    //Create voters form funcs
 
+    $scope.voters = [{id: 'voter1'}, {id: 'voter2'}];
+
+    $scope.addNewVoter = function() {
+      var last = $scope.voters.length - 1;
+      var newIdNo = +$scope.voters[last].id.substring(5) + 1;
+      $scope.voters.push({'id':'voter' + newIdNo});
+    };
+
+    $scope.showRemoveVoter = function(voter) {
+      return voter.id !== $scope.voters[0].id;
+    };
+
+    $scope.removeVoter = function(index) {
+      $scope.voters.splice(index, 1);
+      return
+    }
+
+    //Submit form funcs
+
+    $scope.submitForm = function(form) {
+      console.log(vm.election);
+      console.log('clicked');
+    }
+
+    //END FORM FUNCS
 
     DataFromFactory.allData().then( function(data) {
       vm.all = data;

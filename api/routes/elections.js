@@ -21,5 +21,11 @@ router.get('/:electionID', (req, res, next) => {
 //   dbHelper.findBallotById(electionId, ballotId, res);
 // })
 
+//POST create new election
+router.post('/', (req, res, next) => {
+  console.log(req.body);
+  console.log('clicked');
+})
+
 
 module.exports = router;
