@@ -11,16 +11,16 @@
     // })
     .run(["$rootScope", "$state", '$window', '$location', function($rootScope, $state, $window, $location) {
 
-      // $rootScope.$on('$locationChangeStart', function(event, next, current) {
-        // if (!$window.localStorage.betterVoteAdmin) {
-        //   // $state.go('login');
-        //   if ($location.$$path === '/profile' || $location.$$path === '/elections' ) {
-        //     Materialize.toast('You must be logged in', 3000);
-        //     $location.path('/login');
-        //   }
-        //   // console.log($location.$$path)
-        // }
-      // });
+      $rootScope.$on('$locationChangeStart', function(event, next, current) {
+        if (!$window.localStorage.betterVoteAdmin) {
+          // $state.go('login');
+          if ($location.$$path.includes('/profile') || $location.$$path.includes('/elections') ) {
+            Materialize.toast('You must be logged in', 3000);
+            $location.path('/login');
+          }
+          // console.log($location.$$path)
+        }
+      });
 }])
 
   MainRouter.$inject = ['$stateProvider', '$urlRouterProvider', '$authProvider'];
@@ -96,8 +96,14 @@
 
    $urlRouterProvider.otherwise(function($injector, $location){
         // ... some advanced code...
-        Materialize.toast('Sorry, invalid url!')
+        // console.log($location.$$path)
+      if ($location.$$path === '') {
         $location.path('/')
+        // Materialize.toast('Sorry, invalid url!')
+      } else {
+        Materialize.toast('Sorry, invalid url!', 2000)
+        $location.path('/')
+      }
     });
 
    $authProvider
