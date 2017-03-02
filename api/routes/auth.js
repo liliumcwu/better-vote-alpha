@@ -5,7 +5,7 @@ const express = require('express'),
 require('../db/config');
 const Admin = require('../models/Admin.js');
 
-const googSecret = 'QXH8KXLmZIpDQozV3Gysut4r'
+const googSecret = process.env.GOOGLE_CLIENT_SECRET;
 
 router.post('/google', function(req, res) {
   var accessTokenUrl = 'https://accounts.google.com/o/oauth2/token';
