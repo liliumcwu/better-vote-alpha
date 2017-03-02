@@ -24,6 +24,27 @@
     //   $scope.factoryTest = JSON.stringify(data);
     // });
 
+    //Create election candidate form funcs
+
+    $scope.candidates = [{id: 'candidate-1'}, {id: 'candidate-2'}]
+
+    $scope.addNewCandidate = function() {
+      var last = $scope.candidates.length - 1;
+      var newIdNo = +$scope.candidates[last].id.substring(10) + 1;
+      $scope.candidates.push({'id':'candidate-' + newIdNo});
+    };
+
+    $scope.showRemoveCandidate = function(candidate) {
+      return candidate.id !== $scope.candidates[0].id;
+    };
+
+    $scope.removeCandidate = function(index) {
+      $scope.candidates.splice(index, 1);
+      return
+    }
+
+    //End election candidate funcs
+
 
     DataFromFactory.allData().then( function(data) {
       vm.all = data;
@@ -77,6 +98,9 @@
     //     console.log(err);
     //   })
     // };
+
+    //Find all elections of a Particular Admin
+
 
   }
 

@@ -18,6 +18,7 @@
   <header ng-controller="NavController as nav">
     <div class="navbar-fixed">
       <nav>
+      <!-- <nav class="nav-extended"> -->
         <div class="nav-wrapper container">
           <a href="#!" class="brand-logo">Better.vote</a>
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -35,7 +36,19 @@
             <li ng-if="isAuthenticated()"><a ng-click="nav.logout()">Logout</a></li>
           </ul>
         </div>
+<!--         <div class="nav-content">
+          <ul class="tabs tabs-transparent">
+            <li class="tab"><a href="#test1">Test 1</a></li>
+            <li class="tab"><a class="active" href="#test2">Test 2</a></li>
+            <li class="tab disabled"><a href="#test3">Disabled Tab</a></li>
+            <li class="tab"><a href="#test4">Test 4</a></li>
+          </ul>
+        </div> -->
       </nav>
+<!--       <div id="test1" class="col s12">Test 1</div>
+      <div id="test2" class="col s12">Test 2</div>
+      <div id="test3" class="col s12">Test 3</div>
+      <div id="test4" class="col s12">Test 4</div> -->
     </div>
   </header>
 
@@ -51,7 +64,7 @@
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
-          <h5 class="white-text">Footer Content</h5>
+          <h5 class="white-text">Heard of IRV?</h5>
           <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
         </div>
         <div class="col l4 offset-l2 s12">
@@ -67,8 +80,8 @@
     </div>
     <div class="footer-copyright">
       <div class="container">
-      © 2017 Copyright Text
-      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+      © 2017 Better.vote
+      <!-- <a class="grey-text text-lighten-4 right" href="#!">More Links</a> -->
       </div>
     </div>
   </footer>

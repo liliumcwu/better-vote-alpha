@@ -1,4 +1,8 @@
-<section ng-controller="ProfileController as profile">
+<section class="container" ng-controller="ProfileController as profile">
   <!-- <h1>{{profile.adminId}}</h1> -->
   <h1>Welcome, {{profile.currentAdmin.displayName}}</h1>
+  <!-- <button ui-sref="elections.create">Create A New Election</button> -->
+  <button ui-sref="elections.create" class="btn waves-effect waves-light">Create A New Election
+        <i class="material-icons right">create</i>
+  </button>
 </section>
