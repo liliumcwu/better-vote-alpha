@@ -7,6 +7,8 @@ const Election = require('../../models/Election.js'),
 //Takes in any collection, and returns all
 function findAllElection(res) {
   Election.find({})
+  //Must populate referenced admin in election
+  .populate('admin')
   //Must populate referenced voters in ballot
   .populate('ballots.voter')
   .exec( (err, elections) => {
