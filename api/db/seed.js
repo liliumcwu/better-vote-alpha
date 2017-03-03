@@ -1,7 +1,9 @@
 const mongoose = require('./config.js');
 
 const Election = require('../models/Election.js'),
-      Voter = require('../models/Voter.js');
+      Voter = require('../models/Voter.js'),
+      Admin = require('../models/Admin.js');
+
 
 //First make users then election then ballot push
 
@@ -14,6 +16,20 @@ Voter.remove({}, err => {
 Election.remove({}, err => {
   console.log('Election collection removed')
 });
+
+Admin.remove({}, err => {
+  console.log('Admin collection removed')
+});
+
+//Admin Seed
+const admin1 = new Admin({
+  googleId: '111893810053247884920',
+  displayName: 'Andrew Maidah',
+  email: 'a.maidah@gmail.com'
+})
+
+admin1.save()
+console.log(admin1)
 
 //Voter Seed
 const voter1 = new Voter({
@@ -75,7 +91,7 @@ voter9.save();
 //Election Seed
 const election1 = new Election({
   electionTitle: 'Test Election',
-  admin: 'admin@admin.com',
+  admin: [admin1],
   ballots: [],
   candidates: ['A', 'B', 'C']
 });
@@ -130,6 +146,7 @@ election1.ballots.push({
 election1.save( err => {
   if (!err) {
     Election.find({})
+    .populate('admin')
     .populate('ballots.voter')
     .exec( (err, elections) => {
       console.log(JSON.stringify(elections, null, 2));

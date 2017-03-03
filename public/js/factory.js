@@ -3,12 +3,30 @@
 
     angular
     .module('betterVote')
-    .factory('DataFromFactory', function($http, $q) {
+    .factory('DataFromFactory', function($http, $q, $window) {
       console.log('Making the call from Factory');
       var service = {};
       service.allData = allData;
       service.assembleBallots = assembleBallots;
       service.findWinner = findWinner;
+      service.hasAdminLocalStorage = hasAdminLocalStorage;
+      service.allAdmins = allAdmins;
+
+      function hasAdminLocalStorage() {
+        if ($window.localStorage.betterVoteAdmin) {
+          return true
+        }
+        else {
+          return false
+        }
+      }
+
+      function allAdmins() {
+        return $http.get('api/admins').then( function(response) {
+          return response.data.admins
+        })
+
+      }
 
       function allData() {
         return $http.get('api/elections').then( function(response) {

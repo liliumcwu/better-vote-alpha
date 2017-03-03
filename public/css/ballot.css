@@ -1,0 +1,14 @@
+.candidate-li {
+  /*font-size: 3em;*/
+  border: 1px solid grey;
+  margin-top: -1px;
+}
+
+.candidate-ul {
+  width: 30% !important;
+  margin: 10px auto;
+  /*background-color: red;*/
+  cursor: move;
+  /*margin-top: 10px;*/
+  /*display: inline-block;*/
+}
