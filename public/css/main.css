@@ -44,7 +44,8 @@ nav a.active {
 
 .valign-wrapper {
   flex: 1 0 auto;
-  background-color: red;
+  /*background-color: red;*/
+  height: 200px;
 }
 
 .btn-google-plus:hover,

@@ -1,6 +1,6 @@
 <h4>{{details.currentAdminElection.electionTitle}}</h4>
-<p>Status: {{details.checkElectionActive()}}</p>
+<p>Status: {{details.checkElectionActive()}} <span><button class="btn waves-effect waves-light">Close Election</button></span></p>
 <h5>Candidates:</h5>
 <span ng-repeat="candidate in details.currentAdminElection.candidates"><span>{{$index + 1}}. </span>{{candidate}} <!--<span ng-show="!$last">, </span>--></span>
 <h5>Voters: <span><button class="btn waves-effect waves-light">Email Unique URLS to Voters</button></span></h5>
-<p ng-repeat="ballots in details.currentAdminElection.ballots"><span>{{$index + 1}}. </span>{{ballots.voter[0].fName}}, {{ballots.voter[0].email}} | Voter Unique Url: better.vote/ballots/{{details.params}}/{{ballots._id}} <!--<span ng-show="!$last">, </span>--></p>
+<p ng-repeat="ballots in details.currentAdminElection.ballots"><span>{{$index + 1}}. </span>{{ballots.voter[0].fName}}, {{ballots.voter[0].email}} | Already Voted? {{ballots.hasVoted}} <br /> Voter Unique Url: better.vote/ballots/{{details.params}}/{{ballots._id}} <!--<span ng-show="!$last">, </span>--></p>

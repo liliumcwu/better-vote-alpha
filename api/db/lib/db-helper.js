@@ -129,6 +129,7 @@ function createElection(electionData, res) {
       .populate('ballots.voter')
       .exec( (err, elections) => {
         console.log(JSON.stringify(elections, null, 2));
+        res.json({status: 200});
       })
     }
   })

@@ -6,9 +6,9 @@
     .controller('ElectionsController', ElectionsController)
 
   //Factory Style
-  ElectionsController.$inject = ['$http', '$scope', '$rootScope', 'DataFromFactory'];
+  ElectionsController.$inject = ['$http', '$scope', '$rootScope', '$location', 'DataFromFactory'];
 
-  function ElectionsController($http, $scope, $rootScope, DataFromFactory) {
+  function ElectionsController($http, $scope, $rootScope, $location, DataFromFactory) {
     const vm = this;
     vm.all = [];
     vm.currentAdminElections = [];
@@ -90,7 +90,23 @@
       }
       console.log(election);
       $http.post('api/elections', election).then( function(response) {
+        console.log('enters post');
         console.log(response.data);
+        if (response.data.status === 200) {
+          DataFromFactory.allData().then( function(data) {
+            vm.all = data;
+            console.log('All elections', vm.all)
+            vm.currentAdminElections = [];
+            for (var i = 0; i < vm.all.length; i++) {
+              if (vm.all[i].admin[0]._id === vm.currentAdmin._id) {
+                vm.currentAdminElections.push(vm.all[i])
+              }
+            }
+            console.log('All current Admin Elections', vm.currentAdminElections);
+          })
+
+          $location.path('/elections/active');
+        }
       }, function(err) {
         console.log(err);
       })
@@ -118,7 +134,7 @@
     //   console.log('async test from within findWinner function')
     // })
 
-//MOVED TO INDIAN FACTORY.JS HELPER
+//MOVED TO FACTORY.JS HELPER
     // function assembleBallots(election) {
     //   let ballots = election.ballots;
     //   console.log(ballots);
@@ -129,7 +145,7 @@
     //   return
     // }
 
-//MOVED TO INDIAN FACTORY.JS HELPER
+//MOVED TO FACTORY.JS HELPER
     // let counter = '1';
     // function findWinner(arrBallots) {
     //   vm.rounds[counter] = {};
