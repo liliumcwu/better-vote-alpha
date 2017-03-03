@@ -6,7 +6,12 @@
 <div class="progress">
   <div class="indeterminate"></div>
 </div> -->
+<p>{{details.currentWinner.winner}}</p>
+<div ng-repeat="round in details.currentWinner.rounds">
+  <!-- <p>Round {{$index + 1}}: {{round}}</p> -->
+  <p>Round {{$index + 1}}: <br><span ng-repeat="(key, value) in round">Candidate {{key}}: {{value}} Votes <span ng-show="!$last">|</span> </span></p>
 
+</div>
 <h5>Round Calculation History:</h5>
 </div>
 

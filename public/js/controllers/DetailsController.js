@@ -5,9 +5,9 @@
     .module('betterVote')
     .controller('DetailsController', DetailsController)
 
-  DetailsController.$inject = ['$stateParams', 'DataFromFactory'];
+  DetailsController.$inject = ['$stateParams', 'DataFromFactory', '$state'];
 
-  function DetailsController($stateParams, DataFromFactory) {
+  function DetailsController($stateParams, DataFromFactory, $state) {
     // console.log($stateParams)
     let vm = this;
     vm.params = $stateParams.electionId;
@@ -16,6 +16,7 @@
     vm.checkElectionActive = checkElectionActive;
     vm.checkElection = checkElection;
     vm.findWinner = findWinner;
+    vm.currentWinner;
     console.log(vm.params);
 
     //Find all elections of a Particular Admin //Refactor DRY to FACTORY
@@ -50,6 +51,23 @@
       console.log(ballots);
       var winner = DataFromFactory.findWinner(ballots);
       console.log(winner);
+      // winner.rounds = JSON.stringify(winner.rounds);
+      winner.rounds = roundsAssembler(winner.rounds);
+      console.log(winner.rounds);
+      vm.currentWinner = winner;
+      // $state.reload();
+    }
+
+    //findWinner Rounds assembler
+    function roundsAssembler(roundsObj) {
+      // console.log(roundsObj);
+      var newArr = [];
+      var roundsKeys = Object.keys(roundsObj);
+      for (var i = 0; i < roundsKeys.length; i++) {
+        newArr.push(roundsObj[roundsKeys[i]])
+      }
+      // roundsKeys[0]
+      return newArr;
     }
 
   }
