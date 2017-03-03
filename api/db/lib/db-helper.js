@@ -135,10 +135,49 @@ function createElection(electionData, res) {
   })
 }
 
+// function updateBallot(electionId, ballotId, rankedVotes, res) {
+//   console.log(rankedVotes);
+//   Election.findOneAndUpdate({
+//     'ballots._id': ObjectId(ballotId)
+//   },
+//   {$set: {hasVoted: true} },
+//   {new: true}, (err, doc) => {
+//     if (err) {
+//       console.log('Something wrong with updating candidate votes')
+//     }
+//     console.log(doc)
+//     res.send(doc);
+//   })
+//   // res.send(rankedVotes);
+// }
+
+function updateBallot(electionId, ballotId, rankedVotes, res) {
+  console.log(rankedVotes);
+  //Find specific election
+  Election.find({_id: ObjectId(electionId)}, (err, doc) => {
+    console.log(doc);
+    //Find embedded doc by Id
+    var ballot = doc[0].ballots.id(ballotId)
+    ballot.hasVoted = true;
+    ballot.votes = rankedVotes;
+    console.log(ballot)
+    doc[0].save( err => {
+      if (err) throw (err)
+        else {
+          res.json({status: 200})
+        }
+    });
+    // res.send(ballot);
+  })
+  // console.log(doc)
+  // res.send(rankedVotes);
+}
+
 module.exports = {
   findAllElection,
   findElectionById,
   findBallotById,
   findBallotById2,
-  createElection
+  createElection,
+  updateBallot
 }

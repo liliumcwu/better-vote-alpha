@@ -26,7 +26,6 @@ router.post('/', (req, res, next) => {
   console.log(req.body);
   console.log('clicked');
   dbHelper.createElection(req.body, res);
-  // res.json({status: 'yay'})
 })
 
 

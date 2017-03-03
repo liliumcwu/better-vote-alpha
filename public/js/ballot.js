@@ -2,7 +2,8 @@ console.log('hey from ballot.js')
 
 const candWrap = document.querySelector('.candidate-wrapper'),
       candidateBtn = document.querySelector('.candidate-rank-btn'),
-      $candidates = $('.candidate-ul');
+      $candidates = $('.candidate-ul'),
+      $mainWrap = $('.main-wrap');
 
 var dataAll;
 var votes;
@@ -11,6 +12,7 @@ var path = window.location.pathname.substring(9)
 
 console.log(path)
 
+//Refactor this
 $(function() {
   console.log( "ready!" );
   $.get(`/api/elections/${path}`, res => {
@@ -31,6 +33,11 @@ $(function() {
     }
     html += '</ul><h5 class="flow-text">Bottom Choice</h5>'
     console.log(html)
+    console.log(dataAll.data.ballot.hasVoted);
+    if (dataAll.data.admin) {
+      $mainWrap.html(`<h4 class="center-align flow-text">You have already voted.<br><br>Thank you for participating.</h4><h5 class="center-align flow-text">If you feel this is in error, please contact your administrator: ${dataAll.data.admin}.</h5>`);
+      return false;
+    }
     candWrap.innerHTML = html;
     Sortable.create(simpleList, {animation: 200 /* options */ });
     console.log(simpleList)
@@ -39,19 +46,18 @@ $(function() {
 
 function handleClickCandidate(evt) {
   rankedVotes = [];
-  console.log('clicked');
-  // var order = simpleList.toArray();
   console.log(simpleList);
-  // console.log($candidates);
-  // console.log(simpleList.children.length)
   var length = simpleList.children.length;
-  // console.log(simpleList.children[0].textContent)
-  // console.log(simpleList.children[0].dataset.id)
   for (let i = 0; i < length; i++) {
-    // console.log(simpleList.children[i].dataset.id);
     rankedVotes.push(simpleList.children[i].dataset.id);
   }
   console.log(rankedVotes);
+  $.post(`/ballots/${path}`, {rankedVotes}, res => {
+    console.log(res);
+    if (res.status === 200) {
+      $mainWrap.html('<h4 class="center-align flow-text">Thank you for voting!</h4>')
+    }
+  })
 }
 
 candidateBtn.addEventListener('click', handleClickCandidate);
