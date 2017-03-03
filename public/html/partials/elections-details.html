@@ -3,4 +3,4 @@
 <h5>Candidates:</h5>
 <span ng-repeat="candidate in details.currentAdminElection.candidates"><span>{{$index + 1}}. </span>{{candidate}} <!--<span ng-show="!$last">, </span>--></span>
 <h5>Voters:</h5>
-<p ng-repeat="ballots in details.currentAdminElection.ballots"><span>{{$index + 1}}. </span>{{ballots.voter[0].fName}}, {{ballots.voter[0].email}} | Voter Unique Url: better.vote/{{}} <!--<span ng-show="!$last">, </span>--></p>
+<p ng-repeat="ballots in details.currentAdminElection.ballots"><span>{{$index + 1}}. </span>{{ballots.voter[0].fName}}, {{ballots.voter[0].email}} | Voter Unique Url: better.vote/{{details.params}}/{{ballots._id}} <!--<span ng-show="!$last">, </span>--></p>
