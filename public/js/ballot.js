@@ -32,7 +32,7 @@ $(function() {
     html += '</ul><h5 class="flow-text">Bottom Choice</h5>'
     console.log(html)
     candWrap.innerHTML = html;
-    Sortable.create(simpleList, { /* options */ });
+    Sortable.create(simpleList, {animation: 200 /* options */ });
     console.log(simpleList)
   })
 });
