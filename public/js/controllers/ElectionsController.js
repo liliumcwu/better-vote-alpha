@@ -21,17 +21,6 @@
     vm.election.admin = vm.currentAdmin;
     vm.election.electionTitle = 'My Test Election';
 
-    // console.log(vm.all);
-
-    //Service
-    // $scope.hello = helloWorldFromService.sayHello();
-    // $scope.test = testWorldFromService.sayHello();
-
-    //Factory
-    // DataFromFactory.then(function(data) {
-    //   $scope.factoryTest = JSON.stringify(data);
-    // });
-
     //Create election candidate form funcs
 
     $scope.candidates = [{id: 'candidate1', name: 'Andrew'}, {id: 'candidate2', name: 'Tom'}];
@@ -75,6 +64,7 @@
     $scope.submitForm = function(form) {
       console.log('clicked submitForm');
       var election = vm.election;
+      console.log(election);
       election.candidates = [];
       var candidates = $scope.candidates;
       var voters = $scope.voters;
@@ -104,7 +94,7 @@
             }
             console.log('All current Admin Elections', vm.currentAdminElections);
           })
-
+          Materialize.toast(`${election.electionTitle} created!`, 2000)
           $location.path('/elections/active');
         }
       }, function(err) {
@@ -113,63 +103,6 @@
     }
 
     //END FORM FUNCS
-
-    // DataFromFactory.allData().then( function(data) {
-    //   vm.all = data;
-    //   console.log(vm.all)
-    // })
-
-    // .then( function() {
-    //   var electionBallots = DataFromFactory.assembleBallots(vm.all[0]);
-    //   vm.electionBallots = electionBallots;
-    //   console.log('from vm.electionBallots', vm.electionBallots)
-    // })
-
-  //winning logic
-    // .then( function() {
-    //   console.log('entering winning logic');
-    //   var winner = DataFromFactory.findWinner(vm.electionBallots)
-    //   console.log(winner);
-    //   vm.winner = winner;
-    //   console.log('async test from within findWinner function')
-    // })
-
-//MOVED TO FACTORY.JS HELPER
-    // function assembleBallots(election) {
-    //   let ballots = election.ballots;
-    //   console.log(ballots);
-    //   for (let i = 0; i < ballots.length; i++) {
-    //     vm.electionBallots.push(ballots[i].votes)
-    //   }
-    //   console.log(vm.electionBallots);
-    //   return
-    // }
-
-//MOVED TO FACTORY.JS HELPER
-    // let counter = '1';
-    // function findWinner(arrBallots) {
-    //   vm.rounds[counter] = {};
-    //   for (let i = 0; i< arrBallots.length; i++) {
-    //     vm.rounds[counter][arrBallots[i][0]] = null;
-    //     // counter += '1';
-    //   }
-    //   console.log(vm.rounds)
-    // }
-
-
-    // getAllElections();
-
-
-    //GET all available elections
-    // function getAllElections() {
-    //   $http.get('api/elections').then( function(response) {
-    //     vm.all = response.data.elections;
-    //     console.log(vm.all);
-    //     console.log(DataFromFactory.data)
-    //   }, function(err) {
-    //     console.log(err);
-    //   })
-    // };
 
     //Find all elections of a Particular Admin
     DataFromFactory.allData().then( function(data) {
