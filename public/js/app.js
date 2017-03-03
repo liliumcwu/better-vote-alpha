@@ -79,7 +79,8 @@
     .state('elections.details', {
       url: '/details/:electionId',
       templateUrl: 'html/partials/elections-details.html',
-      controller: 'DetailsController'
+      controller: 'DetailsController',
+      controllerAs: 'details'
       // controller: function ($stateParams) {
       //     console.log($stateParams);
       // }
@@ -108,17 +109,17 @@
 
    // $urlRouterProvider.otherwise('/');
 
-   // $urlRouterProvider.otherwise(function($injector, $location){
-   //      // ... some advanced code...
-   //      // console.log($location.$$path)
-   //    if ($location.$$path === '') {
-   //      $location.path('/')
-   //      // Materialize.toast('Sorry, invalid url!')
-   //    } else {
-   //      Materialize.toast('Sorry, invalid url!', 2000)
-   //      $location.path('/')
-   //    }
-   //  });
+   $urlRouterProvider.otherwise(function($injector, $location){
+        // ... some advanced code...
+        // console.log($location.$$path)
+      if ($location.$$path === '') {
+        $location.path('/')
+        // Materialize.toast('Sorry, invalid url!')
+      } else {
+        Materialize.toast('Sorry, invalid url!', 2000)
+        $location.path('/')
+      }
+    });
 
    $authProvider
       .google({
