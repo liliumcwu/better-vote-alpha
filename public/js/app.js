@@ -65,7 +65,8 @@
     .state('elections', {
       url: '/elections',
       templateUrl: 'elections.html',
-      controller: 'ElectionsController'
+      controller: 'ElectionsController',
+      controllerAs: 'election'
     })
     .state('elections.active', {
       url: '/active',
@@ -74,6 +75,14 @@
     .state('elections.create', {
       url: '/create',
       templateUrl: 'html/partials/elections-create.html'
+    })
+    .state('elections.details', {
+      url: '/details/:electionId',
+      templateUrl: 'html/partials/elections-details.html',
+      controller: 'DetailsController'
+      // controller: function ($stateParams) {
+      //     console.log($stateParams);
+      // }
     })
     .state('login', {
       url: '/login',
@@ -86,7 +95,8 @@
     .state('profile', {
       url: '/profile',
       templateUrl: 'html/partials/profile.html',
-      controller: 'ProfileController'
+      controller: 'ProfileController',
+      controllerAs: 'profile'
       // resolve: {
       //   loginRequired: loginRequired
       // }
@@ -98,17 +108,17 @@
 
    // $urlRouterProvider.otherwise('/');
 
-   $urlRouterProvider.otherwise(function($injector, $location){
-        // ... some advanced code...
-        // console.log($location.$$path)
-      if ($location.$$path === '') {
-        $location.path('/')
-        // Materialize.toast('Sorry, invalid url!')
-      } else {
-        Materialize.toast('Sorry, invalid url!', 2000)
-        $location.path('/')
-      }
-    });
+   // $urlRouterProvider.otherwise(function($injector, $location){
+   //      // ... some advanced code...
+   //      // console.log($location.$$path)
+   //    if ($location.$$path === '') {
+   //      $location.path('/')
+   //      // Materialize.toast('Sorry, invalid url!')
+   //    } else {
+   //      Materialize.toast('Sorry, invalid url!', 2000)
+   //      $location.path('/')
+   //    }
+   //  });
 
    $authProvider
       .google({

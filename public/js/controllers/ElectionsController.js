@@ -11,13 +11,17 @@
   function ElectionsController($http, $scope, $rootScope, DataFromFactory) {
     const vm = this;
     vm.all = [];
+    vm.currentAdminElections = [];
     vm.electionBallots = [];
     vm.rounds = {};
     vm.winner;
     vm.election = {};
     vm.currentAdmin = $rootScope.currentAdmin;
-    console.log(vm.currentAdmin);
+    console.log(vm.currentAdmin._id);
     vm.election.admin = vm.currentAdmin;
+    vm.election.electionTitle = 'My Test Election';
+
+    // console.log(vm.all);
 
     //Service
     // $scope.hello = helloWorldFromService.sayHello();
@@ -49,7 +53,7 @@
 
     //Create voters form funcs
 
-    $scope.voters = [{id: 'voter1'}, {id: 'voter2'}];
+    $scope.voters = [{id: 'voter1', fName: 'Elle', email: 'elle@elle.com'}, {id: 'voter2', fName: 'Suzy', email: 'suzy@suzy.com'}];
 
     $scope.addNewVoter = function() {
       var last = $scope.voters.length - 1;
@@ -69,27 +73,50 @@
     //Submit form funcs
 
     $scope.submitForm = function(form) {
-      console.log(vm.election);
-      console.log('clicked');
+      console.log('clicked submitForm');
+      var election = vm.election;
+      election.candidates = [];
+      var candidates = $scope.candidates;
+      var voters = $scope.voters;
+      for (var i = 0; i < candidates.length; i++) {
+        election.candidates.push(candidates[i].name);
+      }
+      election.voters = [];
+      for (var j = 0; j < voters.length; j++) {
+        var newObj = {};
+        newObj.fName = voters[j].fName;
+        newObj.email = voters[j].email;
+        election.voters.push(newObj);
+      }
+      console.log(election);
+      $http.post('api/elections', election).then( function(response) {
+        console.log(response.data);
+      }, function(err) {
+        console.log(err);
+      })
     }
 
     //END FORM FUNCS
 
-    DataFromFactory.allData().then( function(data) {
-      vm.all = data;
-    })
-    .then( function() {
-      var electionBallots = DataFromFactory.assembleBallots(vm.all[0]);
-      vm.electionBallots = electionBallots;
-      console.log('from vm.electionBallots', vm.electionBallots)
-    })
-    .then( function() {
-      console.log('entering winning logic');
-      var winner = DataFromFactory.findWinner(vm.electionBallots)
-      console.log(winner);
-      vm.winner = winner;
-      console.log('async test from within findWinner function')
-    })
+    // DataFromFactory.allData().then( function(data) {
+    //   vm.all = data;
+    //   console.log(vm.all)
+    // })
+
+    // .then( function() {
+    //   var electionBallots = DataFromFactory.assembleBallots(vm.all[0]);
+    //   vm.electionBallots = electionBallots;
+    //   console.log('from vm.electionBallots', vm.electionBallots)
+    // })
+
+  //winning logic
+    // .then( function() {
+    //   console.log('entering winning logic');
+    //   var winner = DataFromFactory.findWinner(vm.electionBallots)
+    //   console.log(winner);
+    //   vm.winner = winner;
+    //   console.log('async test from within findWinner function')
+    // })
 
 //MOVED TO INDIAN FACTORY.JS HELPER
     // function assembleBallots(election) {
@@ -129,7 +156,16 @@
     // };
 
     //Find all elections of a Particular Admin
-
+    DataFromFactory.allData().then( function(data) {
+      vm.all = data;
+      console.log('All elections', vm.all)
+      for (var i = 0; i < vm.all.length; i++) {
+        if (vm.all[i].admin[0]._id === vm.currentAdmin._id) {
+          vm.currentAdminElections.push(vm.all[i])
+        }
+      }
+      console.log('All current Admin Elections', vm.currentAdminElections);
+    })
 
   }
 

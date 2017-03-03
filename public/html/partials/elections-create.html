@@ -21,11 +21,11 @@
     <div class="row" data-ng-repeat="voter in voters">
       <div class="input-field col s10 m5 l5">
         <label class="active" for="voter-first-name">Voter First Name</label>
-        <input id="voter-first-name" type="text" required="" aria-required="true">
+        <input id="voter-first-name" type="text" ng-model="voter.fName" required="" aria-required="true">
       </div>
       <div class="input-field col s10 m5 l5">
         <label class="active" for="voter-email">Voter Email</label>
-        <input id="voter-email" type="email" required="" aria-required="true">
+        <input id="voter-email" type="email" ng-model="voter.email" required="" aria-required="true">
       </div>
       <a ng-show="$first" ng-click="addNewVoter()" class="btn-floating btn-large waves-effect waves-light green right"><i class="material-icons">add</i></a>
       <a ng-show="showRemoveVoter(voter)" ng-click="removeVoter($index)" class="btn-floating btn-large waves-effect waves-light red right"><i class="material-icons">remove</i></a>
@@ -37,4 +37,4 @@
 </div>
 <div id="candidateDisplay">REMOVE BEFORE PUSH {{candidates}}</div>
 <div id="candidateDisplay">REMOVE BEFORE PUSH {{voters}}</div>
-<div> {{election.election.electionTitle}} </div>
+<div>REMOVE BEFORE PUSH {{election.election.electionTitle}} </div>

@@ -2,7 +2,8 @@ const mongoose = require('../config.js'),
       ObjectId = require('mongoose').Types.ObjectId;
 
 const Election = require('../../models/Election.js'),
-      Voter = require('../../models/Voter.js');
+      Voter = require('../../models/Voter.js'),
+      Admin = require('../../models/Admin.js');
 
 //Takes in any collection, and returns all
 function findAllElection(res) {
@@ -34,8 +35,51 @@ function findBallotById(electionId, ballotId, res) {
   })
 }
 
+//Create a new election on form submission
+function createElection(electionData, res) {
+  const admin = electionData.admin;
+  const electionTitle = electionData.electionTitle;
+  const candidates = electionData.candidates;
+  const voters = electionData.voters;
+  //assemble election for mongoose
+  const newElection = new Election({
+    electionTitle: electionTitle,
+    admin: mongoose.Types.ObjectId(admin._id),
+    candidates: candidates,
+    ballots: []
+  })
+
+  //save newElection, get back id of election
+
+  var ballotStorage = [];
+  for (let i = 0; i < voters.length; i++) {
+    const voter = new Voter({
+      fName: voters[i].fName,
+      email: voters[i].email
+    });
+    voter.save();
+    ballotStorage.push({
+      voter: voter,
+      votes: candidates
+    })
+  }
+  console.log(ballotStorage);
+  newElection.ballots = ballotStorage;
+  newElection.save( err => {
+    if (!err) {
+      Election.find({})
+      .populate('admin')
+      .populate('ballots.voter')
+      .exec( (err, elections) => {
+        console.log(JSON.stringify(elections, null, 2));
+      })
+    }
+  })
+}
+
 module.exports = {
   findAllElection,
   findElectionById,
-  findBallotById
+  findBallotById,
+  createElection
 }
