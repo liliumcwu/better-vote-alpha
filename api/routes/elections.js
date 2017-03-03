@@ -15,11 +15,11 @@ router.get('/:electionID', (req, res, next) => {
 })
 
 //GET specific ballot in specific election
-// router.get('/:electionID/:ballotID', (req, res, next) => {
-//   let electionId = req.params.electionID;
-//   let ballotId = req.params.ballotID;
-//   dbHelper.findBallotById(electionId, ballotId, res);
-// })
+router.get('/:electionID/:ballotID', (req, res, next) => {
+  let electionId = req.params.electionID;
+  let ballotId = req.params.ballotID;
+  dbHelper.findBallotById2(electionId, ballotId, res);
+})
 
 //POST create new election
 router.post('/', (req, res, next) => {

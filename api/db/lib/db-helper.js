@@ -29,9 +29,66 @@ function findElectionById(electionId, res) {
 function findBallotById(electionId, ballotId, res) {
   // const query = { campaign_id: new ObjectId(campaign._id) };
   const query = {'ballots._id': ObjectId(ballotId)}
-  Election.find(query, (err, ballot) => {
+  Election.find(query)
+  .populate('admin')
+  .populate('ballots.voter')
+  .exec( (err, ballot) => {
     if (err) throw (err);
-    res.json({ballot});
+    if (ballot[0]) {
+      // get correct ballot of particular voter
+      let specificBallot = {};
+      for (let i = 0; i < ballot[0].ballots.length; i++) {
+        console.log(ballotId)
+        console.log(ballot[0].ballots[i]._id)
+        if (ballotId == ballot[0].ballots[i]._id) {
+          console.log('found match')
+          specificBallot.ballot = ballot[0].ballots[i];
+        }
+      }
+      specificBallot.electionTitle = ballot[0].electionTitle;
+      specificBallot.admin = ballot[0].admin[0].displayName;
+      // res.json({ballot: specificBallot });
+      console.log(specificBallot)
+      res.render('ballots', {data: specificBallot})
+          // res.json({ballot: ballot[0]});
+
+    }
+    else {
+      res.json({status: 404})
+    }
+  })
+}
+
+function findBallotById2(electionId, ballotId, res) {
+  // const query = { campaign_id: new ObjectId(campaign._id) };
+  const query = {'ballots._id': ObjectId(ballotId)}
+  Election.find(query)
+  .populate('admin')
+  .populate('ballots.voter')
+  .exec( (err, ballot) => {
+    if (err) throw (err);
+    if (ballot[0]) {
+      // get correct ballot of particular voter
+      let specificBallot = {};
+      for (let i = 0; i < ballot[0].ballots.length; i++) {
+        console.log(ballotId)
+        console.log(ballot[0].ballots[i]._id)
+        if (ballotId == ballot[0].ballots[i]._id) {
+          console.log('found match')
+          specificBallot.ballot = ballot[0].ballots[i];
+        }
+      }
+      specificBallot.electionTitle = ballot[0].electionTitle;
+      specificBallot.admin = ballot[0].admin[0].displayName;
+      // res.json({ballot: specificBallot });
+      console.log(specificBallot)
+      res.json({data: specificBallot})
+          // res.json({ballot: ballot[0]});
+
+    }
+    else {
+      res.json({status: 404})
+    }
   })
 }
 
@@ -81,5 +138,6 @@ module.exports = {
   findAllElection,
   findElectionById,
   findBallotById,
+  findBallotById2,
   createElection
 }

@@ -1,0 +1,13 @@
+{{!-- <h1>{{data.ballot.voter}}</h1> --}}
+<main class="container">
+{{#each data.ballot.voter}}
+<h4>Hello, {{fName}}.</h4>
+{{/each}}
+
+<h5>You have been invited to vote in election: "{{data.electionTitle}}" administered by {{data.admin}}.</h5>
+
+<p>Please drag and drop to rank your candidates by order of preference below. Keep in mind you may only vote once.</p>
+
+
+</main>
+<script></script>
