@@ -1,0 +1,20 @@
+<h4>{{details.currentAdminElection.electionTitle}}</h4>
+<p>Status: {{details.checkElectionActive()}} <span><button ng-if="!details.checkElection()" class="btn waves-effect waves-light" ng-click="election.closeElection()">Close Election</button></span></p>
+<div ng-if="details.checkElection()">
+<h5>Winner: <span><button class="btn waves-effect waves-light" ng-click="details.findWinner()">Calculate Voting Results</button></span></h5>
+<!--
+<div class="progress">
+  <div class="indeterminate"></div>
+</div> -->
+<p>{{details.currentWinner.winner}}</p>
+<div ng-repeat="round in details.currentWinner.rounds">
+  <!-- <p>Round {{$index + 1}}: {{round}}</p> -->
+  <p>Round {{$index + 1}}: <br><span ng-repeat="(key, value) in round">Candidate {{key}}: {{value}} Votes <span ng-show="!$last">|</span> </span></p>
+
+</div>
+</div>
+
+<h5>Candidates:</h5>
+<span ng-repeat="candidate in details.currentAdminElection.candidates"><span>{{$index + 1}}. </span>{{candidate}} <!--<span ng-show="!$last">, </span>--></span>
+<h5>Voters: <span ng-if="!details.checkElection()"><button class="btn waves-effect waves-light">Email Unique URLS to Voters</button></span></h5>
+<p ng-repeat="ballots in details.currentAdminElection.ballots"><span>{{$index + 1}}. </span>{{ballots.voter[0].fName}}, {{ballots.voter[0].email}} | Already Voted? {{ballots.hasVoted}} <br /> Voter Unique Url: better.vote/ballots/{{details.params}}/{{ballots._id}} <!--<span ng-show="!$last">, </span>--></p>

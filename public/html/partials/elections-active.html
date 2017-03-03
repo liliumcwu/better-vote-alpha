@@ -1,0 +1,4 @@
+<!-- <h1>{{election.winner}}</h1> -->
+<div data-ng-repeat="activeElection in election.currentAdminElections">
+  <h5><a ui-sref="elections.details({electionId: activeElection._id})">{{activeElection.electionTitle}}</a></h5>
+</div>

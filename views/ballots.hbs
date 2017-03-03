@@ -1,0 +1,19 @@
+{{!-- <h1>{{data.ballot.voter}}</h1> --}}
+<main class="container main-wrap">
+{{#each data.ballot.voter}}
+<h4>Hello, {{fName}}.</h4>
+{{/each}}
+
+<h5 class="flow-text">You have been invited to vote in election: "{{data.electionTitle}}" administered by {{data.admin}}.</h5>
+
+<p class="flow-text">Please drag and drop to rank your candidates by order of preference below. Keep in mind you may only vote once.</p>
+
+<div class="candidate-wrapper center-align"></div>
+<div class="center-align">
+  <button class="btn waves-effect waves-light btn-large candidate-rank-btn" type="submit" name="action">Submit Ranked Votes
+    <i class="material-icons right">send</i>
+  </button>
+</div>
+
+</main>
+<script></script>
