@@ -6,7 +6,8 @@ const BallotSchema = new mongoose.Schema({
   voter: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Voter' }],
   votes: [],
   url: String,
-  voteDate: { type: Date, default: Date.now }
+  voteDate: { type: Date, default: Date.now },
+  hasVoted: {type: Boolean, default: false }
 })
 
 // const ElectionSchema = mongoose.Schema({
