@@ -26,7 +26,7 @@ Node.js | Express | MongoDB | Mailgun
 
 #### Wireframes:
 
-[Layout](https://github.com/amaidah/better-vote/blob/master/public/assets/layout-sketch.jpg)
+[Layout](https://raw.githubusercontent.com/amaidah/better-vote/master/public/assets/layout-sketch.jpg)
 
 #### Prototypes:
 
