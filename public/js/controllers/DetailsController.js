@@ -14,6 +14,8 @@
     vm.all = [];
     vm.currentAdminElection = [];
     vm.checkElectionActive = checkElectionActive;
+    vm.checkElection = checkElection;
+    vm.findWinner = findWinner;
     console.log(vm.params);
 
     //Find all elections of a Particular Admin //Refactor DRY to FACTORY
@@ -35,6 +37,19 @@
       else {
         return 'Still Collecting Votes'
       }
+    }
+
+    function checkElection() {
+      return vm.currentAdminElection.hasClosed
+    }
+
+    function findWinner() {
+      console.log('clicked');
+      console.log(vm.currentAdminElection);
+      var ballots = DataFromFactory.assembleBallots(vm.currentAdminElection);
+      console.log(ballots);
+      var winner = DataFromFactory.findWinner(ballots);
+      console.log(winner);
     }
 
   }

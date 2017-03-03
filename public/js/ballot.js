@@ -34,7 +34,7 @@ $(function() {
     html += '</ul><h5 class="flow-text">Bottom Choice</h5>'
     console.log(html)
     console.log(dataAll.data.ballot.hasVoted);
-    if (dataAll.data.admin) {
+    if (dataAll.data.ballot.hasVoted) {
       $mainWrap.html(`<h4 class="center-align flow-text">You have already voted.<br><br>Thank you for participating.</h4><h5 class="center-align flow-text">If you feel this is in error, please contact your administrator: ${dataAll.data.admin}.</h5>`);
       return false;
     }

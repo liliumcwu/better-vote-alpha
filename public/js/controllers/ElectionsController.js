@@ -6,9 +6,9 @@
     .controller('ElectionsController', ElectionsController)
 
   //Factory Style
-  ElectionsController.$inject = ['$http', '$scope', '$rootScope', '$location', 'DataFromFactory'];
+  ElectionsController.$inject = ['$http', '$scope', '$rootScope', '$location', '$state', 'DataFromFactory'];
 
-  function ElectionsController($http, $scope, $rootScope, $location, DataFromFactory) {
+  function ElectionsController($http, $scope, $rootScope, $location, $state, DataFromFactory) {
     const vm = this;
     vm.all = [];
     vm.currentAdminElections = [];
@@ -20,6 +20,24 @@
     console.log(vm.currentAdmin._id);
     vm.election.admin = vm.currentAdmin;
     vm.election.electionTitle = 'My Test Election';
+    vm.closeElection = closeElection;
+
+    // DataFromFactory.allAdmins().then( function(data) {
+    //   // console.log(data);
+    //   vm.allData = data;
+    // })
+    // .then( function() {
+    //   console.log(vm.allData)
+    //   //write function to search through all admins and return the correct admin
+    //   for (var i = 0; i < vm.allData.length; i++) {
+    //     if (vm.adminId === vm.allData[i].googleId) {
+    //       console.log('found admin', vm.allData[i].displayName)
+    //       vm.currentAdmin = vm.allData[i];
+    //       console.log(vm.currentAdmin);
+    //       $rootScope.currentAdmin = vm.currentAdmin;
+    //     }
+    //   }
+    // })
 
     //Create election candidate form funcs
 
@@ -115,6 +133,19 @@
       }
       console.log('All current Admin Elections', vm.currentAdminElections);
     })
+
+    function closeElection() {
+      console.log('clicked');
+      var path = $location.$$path;
+      // console.log(path)
+      $http.post('api' + path).then( function(res) {
+        console.log(res.status);
+        if (res.status === 200) {
+          $state.reload();
+        }
+
+      })
+    }
 
   }
 

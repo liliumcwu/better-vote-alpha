@@ -24,8 +24,14 @@ router.get('/:electionID/:ballotID', (req, res, next) => {
 //POST create new election
 router.post('/', (req, res, next) => {
   console.log(req.body);
-  console.log('clicked');
   dbHelper.createElection(req.body, res);
+})
+
+//Refactor PUT update close election
+router.post('/details/:electionID', (req, res, next) => {
+  let electionId = req.params.electionID;
+  console.log(electionId)
+  dbHelper.closeElection(electionId, res);
 })
 
 

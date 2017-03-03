@@ -37,11 +37,11 @@
       function assembleBallots(election) {
         let ballots = election.ballots;
         let electionBallots = [];
-        // console.log(ballots);
+        console.log(ballots);
         for (let i = 0; i < ballots.length; i++) {
           electionBallots.push(ballots[i].votes)
         }
-        // console.log(electionBallots);
+        console.log(electionBallots);
         return electionBallots;
       }
 
@@ -109,7 +109,7 @@
           console.log(counter);
           return findWinner(newBallots); //recursively call again
         }
-        return winner; //real return
+        return {winner: winner, rounds: rounds}; //real return
       }
 
       //Service helper to remove matching elements from ballots

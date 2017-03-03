@@ -26,6 +26,17 @@ function findElectionById(electionId, res) {
   });
 };
 
+function closeElection(electionId, res) {
+  Election.findOneAndUpdate({_id: ObjectId(electionId)},
+    {$set: {hasClosed: true}}, {new: true}, (err, doc) => {
+      if (err) throw (err)
+        else {
+          console.log(doc)
+          res.send(doc);
+        }
+    })
+}
+
 function findBallotById(electionId, ballotId, res) {
   // const query = { campaign_id: new ObjectId(campaign._id) };
   const query = {'ballots._id': ObjectId(ballotId)}
@@ -135,22 +146,6 @@ function createElection(electionData, res) {
   })
 }
 
-// function updateBallot(electionId, ballotId, rankedVotes, res) {
-//   console.log(rankedVotes);
-//   Election.findOneAndUpdate({
-//     'ballots._id': ObjectId(ballotId)
-//   },
-//   {$set: {hasVoted: true} },
-//   {new: true}, (err, doc) => {
-//     if (err) {
-//       console.log('Something wrong with updating candidate votes')
-//     }
-//     console.log(doc)
-//     res.send(doc);
-//   })
-//   // res.send(rankedVotes);
-// }
-
 function updateBallot(electionId, ballotId, rankedVotes, res) {
   console.log(rankedVotes);
   //Find specific election
@@ -167,10 +162,7 @@ function updateBallot(electionId, ballotId, rankedVotes, res) {
           res.json({status: 200})
         }
     });
-    // res.send(ballot);
   })
-  // console.log(doc)
-  // res.send(rankedVotes);
 }
 
 module.exports = {
@@ -179,5 +171,6 @@ module.exports = {
   findBallotById,
   findBallotById2,
   createElection,
-  updateBallot
+  updateBallot,
+  closeElection
 }
