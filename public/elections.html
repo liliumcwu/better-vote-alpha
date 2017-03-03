@@ -4,8 +4,16 @@
   <section class="container">
     <!-- <h1>{{hello}}</h1> -->
     <!-- <h1>{{test}}</h1> -->
-    <a ui-sref="elections.active">View Elections</a></li>
-    <a ui-sref="elections.create">Create An Election</a></li>
+    <!-- <nav class="nav-extended"> -->
+      <div class="row">
+        <div class="col s12 m10 l10 center-align">
+        <ul class="tabs">
+          <li class="tab"><a ui-sref="elections.active">View Elections</a></li>
+          <li class="tab"><a ui-sref="elections.create">Create An Election</a></li>
+        </ul>
+        </div>
+      </div>
+    <!-- </nav> -->
     <div ui-view></div>
  </section>
 </main>

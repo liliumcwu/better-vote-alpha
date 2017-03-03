@@ -21,6 +21,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/elections', require('./api/routes/elections.js'));
 app.use('/auth', require('./api/routes/auth.js'));
+app.use('/ballots', require('./api/routes/ballots.js'));
 app.use('/api/admins', require('./api/routes/admin.js'));
 
 //Server

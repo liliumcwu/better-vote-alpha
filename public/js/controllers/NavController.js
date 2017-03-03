@@ -8,6 +8,7 @@
   function NavController($scope, $auth, $window, $location, DataFromFactory) {
     //Materialize mobile collapse initializiation
     $(".button-collapse").sideNav();
+    // $(".dropdown-button").dropdown();
     // if (!$window.localStorage.betterVoteAdmin) {
     // //     // $log.log("user not logged, redirecting to Login view");
     // //     // Redirect to Login view
