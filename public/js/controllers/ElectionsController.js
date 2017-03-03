@@ -41,7 +41,7 @@
 
     //Create election candidate form funcs
 
-    $scope.candidates = [{id: 'candidate1', name: 'Andrew'}, {id: 'candidate2', name: 'Tom'}];
+    $scope.candidates = [{id: 'candidate1', name: 'BQ'}, {id: 'candidate2', name: 'BaoQua'}, {id: 'candidate3', name: 'BaoChaos'}];
 
     $scope.addNewCandidate = function() {
       var last = $scope.candidates.length - 1;
@@ -60,7 +60,15 @@
 
     //Create voters form funcs
 
-    $scope.voters = [{id: 'voter1', fName: 'Elle', email: 'elle@elle.com'}, {id: 'voter2', fName: 'Suzy', email: 'suzy@suzy.com'}];
+    $scope.voters = [
+      {id: 'voter1', fName: 'Andrew', email: 'andrew@andrew.com'},
+      {id: 'voter2', fName: 'Ritwik', email: 'ritwik@ritwik.com'},
+      {id: 'voter3', fName: 'Adam', email: 'adam@adam.com'},
+      {id: 'voter4', fName: 'An', email: 'an@an.com'},
+      {id: 'voter5', fName: 'Michelle', email: 'michelle@michelle.com'},
+      {id: 'voter6', fName: 'Kora', email: 'koram@kora.com'},
+      {id: 'voter7', fName: 'Tim', email: 'tim@tim.com'},
+    ];
 
     $scope.addNewVoter = function() {
       var last = $scope.voters.length - 1;
