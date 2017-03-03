@@ -29,6 +29,7 @@ const admin1 = new Admin({
 })
 
 admin1.save()
+console.log(admin1)
 
 //Voter Seed
 const voter1 = new Voter({
