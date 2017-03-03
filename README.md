@@ -46,6 +46,8 @@ Node.js | Express | MongoDB | Mailgun
 
 Credit: [Wiki](https://en.wikipedia.org/wiki/Instant-runoff_voting#Process)
 
+![Advanced IRV](https://raw.githubusercontent.com/amaidah/better-vote/master/public/assets/two-method-flow.png)
+
 ## Project Context
 
 ### The Motivation
