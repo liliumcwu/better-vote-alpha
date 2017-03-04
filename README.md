@@ -10,7 +10,7 @@
 
 #### Front End:
 
-Angular1 | Materialize.css | HTML | CSS | Javascript | jQuery 
+Angular1 | Materialize.css | HTML | CSS | Javascript | jQuery | Sortable
 
 #### Back End:
 
