@@ -28,15 +28,17 @@ Node.js | Express | MongoDB | Mailgun
 
 ![Layout](https://raw.githubusercontent.com/amaidah/better-vote/master/public/assets/layout-sketch.jpg)
 
-#### Prototypes:
+#### User Stories & Pseudo Code:
 
-#### User Stories:
-
-#### Pseudo Code:
+[https://github.com/amaidah/better-vote/blob/master/planning/election-flow-pseudo-code.md](https://github.com/amaidah/better-vote/blob/master/planning/election-flow-pseudo-code.md)
 
 #### Waffle.io Project Board
 
 [https://waffle.io/amaidah/better-vote](https://waffle.io/amaidah/better-vote)
+
+#### Other Planning:
+
+[https://github.com/amaidah/better-vote/tree/master/planning](https://github.com/amaidah/better-vote/tree/master/planning)
 
 ## IRV Methodology
 
