@@ -14,7 +14,7 @@ Angular1 | Materialize.css | HTML | CSS | Javascript | jQuery | Sortable
 
 #### Back End:
 
-Node.js | Express | MongoDB | Mailgun
+Node.js | Express | MongoDB | Mongoose | HandlebarsJS
 
 ## Getting Started
 
