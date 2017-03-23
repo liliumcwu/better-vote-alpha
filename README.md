@@ -40,6 +40,19 @@ Node.js | Express | MongoDB | Mailgun
 
 [https://github.com/amaidah/better-vote/tree/master/planning](https://github.com/amaidah/better-vote/tree/master/planning)
 
+## Next Steps
+
+### Unsolved Issues
+
+- Must go to profile page first so that Angular Factory pulls correct data
+  - Therefore, cannot refresh on election page
+
+### Planned Features
+
+- Refactor into ReactJS
+- Implement email to voter feature
+- Implement 4 digit unique voter password sent in email
+
 ## IRV Methodology
 
 ##### Basic Flowchart of IRV process
