@@ -21,6 +21,9 @@ Node.js | Express | MongoDB | Mongoose | HandlebarsJS
 1. Run `$ npm install` then `$ npm start`
 2. Make sure `mongod` is running
 3. Navigate to `http://localhost:1776` in a browser
+4. Login, create election
+5. Navigate to unique voter urls to place votes
+6. Navigate back to admin panel to close election and find winner
 
 ### Planning
 
@@ -46,6 +49,8 @@ Node.js | Express | MongoDB | Mongoose | HandlebarsJS
 
 - Must go to profile page first so that Angular Factory pulls correct data
   - Therefore, cannot refresh on election page
+- Recursive algorithm does not take into account ties or multiple attemps to find winner
+  - Will fix in ReactJS implementation later
 
 ### Planned Features
 
