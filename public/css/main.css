@@ -20,6 +20,10 @@ nav a.active {
   z-index: 996;
 }
 
+footer.page-footer {
+  padding-top: 0 !important;
+}
+
 /*.create-form {
   margin: 0 auto;
   background-color: navajowhite;
