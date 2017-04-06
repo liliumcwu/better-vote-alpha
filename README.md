@@ -29,19 +29,19 @@ Node.js | Express | MongoDB | Mongoose | HandlebarsJS
 
 #### Wireframes:
 
-![Layout](https://raw.githubusercontent.com/amaidah/better-vote/master/public/assets/layout-sketch.jpg)
+![Layout](https://raw.githubusercontent.com/amaidah/better-vote-alpha/master/public/assets/layout-sketch.jpg)
 
 #### User Stories & Pseudo Code:
 
-[https://github.com/amaidah/better-vote/blob/master/planning/election-flow-pseudo-code.md](https://github.com/amaidah/better-vote/blob/master/planning/election-flow-pseudo-code.md)
+[https://github.com/amaidah/better-vote-alpha/blob/master/planning/election-flow-pseudo-code.md](https://github.com/amaidah/better-vote-alpha/blob/master/planning/election-flow-pseudo-code.md)
 
 #### Waffle.io Project Board
 
-[https://waffle.io/amaidah/better-vote](https://waffle.io/amaidah/better-vote)
+[https://waffle.io/amaidah/better-vote-alpha](https://waffle.io/amaidah/better-vote-alpha)
 
 #### Other Planning:
 
-[https://github.com/amaidah/better-vote/tree/master/planning](https://github.com/amaidah/better-vote/tree/master/planning)
+[https://github.com/amaidah/better-vote-alpha/tree/master/planning](https://github.com/amaidah/better-vote-alpha/tree/master/planning)
 
 ## Next Steps
 
@@ -66,7 +66,7 @@ Node.js | Express | MongoDB | Mongoose | HandlebarsJS
 
 Credit: [Wiki](https://en.wikipedia.org/wiki/Instant-runoff_voting#Process)
 
-![Advanced IRV](https://raw.githubusercontent.com/amaidah/better-vote/master/public/assets/two-method-flow.png)
+![Advanced IRV](https://raw.githubusercontent.com/amaidah/better-vote-alpha/master/public/assets/two-method-flow.png)
 
 ## Project Context
 
