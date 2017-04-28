@@ -1,5 +1,5 @@
 # Better.vote :bulb: :earth_americas:
-##### An Instant Runoff Voting Idea
+##### An Instant Runoff Voting Idea (currently being refactored here:[Better.vote ReactJS](https://github.com/amaidah/better-vote))
 
 ## Contributors
 
